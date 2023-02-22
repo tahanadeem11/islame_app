@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   get: ^4.6.5
   google_fonts: ^3.0.1
+  flutter_svg: ^2.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -79,6 +80,31 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: PBold
+      fonts:
+        - asset: assets/Fonts/PBold.ttf
+    - family: PMedium
+      fonts:
+        - asset: assets/Fonts/PMedium.ttf
+    - family: PRegular
+      fonts:
+        - asset: assets/Fonts/PRegular.ttf
+    - family: PSemiBold
+      fonts:
+        - asset: assets/Fonts/PSemiBold.ttf
+    - family: RBold
+      fonts:
+        - asset: assets/Fonts/RBold.ttf
+    - family: RMedium
+      fonts:
+        - asset: assets/Fonts/RMedium.ttf
+    - family: RRegular
+      fonts:
+        - asset: assets/Fonts/RRegular.ttf
+
+
+
   # fonts:
   #   - family: Schyler
   #     fonts:

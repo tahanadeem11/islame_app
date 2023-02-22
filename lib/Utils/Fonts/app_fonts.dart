@@ -9,11 +9,11 @@ class FontWeights {
 }
 
 class Weights {
-  static String light = 'Light';
-  static String semiBold = 'SemiBold';
-  static String regular = 'Regular';
-  static String medium = 'Medium';
-  static String bold = 'Bold';
-  static String UrduFont = 'UrduFont';
-  static String ArabicRegular = 'ArabicRegular';
+  static String PBold = 'PBold';
+  static String PMedium = 'PMedium';
+  static String PRegular = 'PRegular';
+  static String PSemiBold = 'PSemiBold';
+  static String RBold = 'RBold';
+  static String RMedium = 'RMedium';
+  static String RRegular = 'RRegular';
 }
