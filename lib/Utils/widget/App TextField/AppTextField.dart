@@ -100,7 +100,7 @@ class _AppTextFieldState extends State<AppTextField> {
       maxLength: widget.maxLength,
       obscureText: this.widget.obsecure,
       onTap: widget.onTap,
-      cursorColor: widget.cursorColor ?? AppColors.Background,
+      cursorColor: widget.cursorColor ?? AppColors.Light_Grey_COLOR,
       /* initialValue: intialValue,*/
       maxLines: widget.maxLines,
       // maxLengthEnforced: false,

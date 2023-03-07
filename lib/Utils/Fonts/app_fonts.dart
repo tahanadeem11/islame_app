@@ -17,3 +17,5 @@ class Weights {
   static String RMedium = 'RMedium';
   static String RRegular = 'RRegular';
 }
+
+String PBold='PBold';

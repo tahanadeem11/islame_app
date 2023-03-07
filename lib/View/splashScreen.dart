@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:islame_app_new_design/Signup/Signup.dart';
 import 'package:islame_app_new_design/Utils/Theme/app_color.dart';
 import 'package:islame_app_new_design/Utils/constants/assets_paths.dart';
 
+import 'Signup/Signup.dart';
 import 'onboarding Screen/OnboardingScreen.dart';
 
 

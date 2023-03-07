@@ -89,7 +89,7 @@ class AppButton extends StatelessWidget {
                 AppText(
                     title: buttonName,
                     color: textColor,
-                    fontFamily: Weights.semiBold,
+                    fontFamily: Weights.PSemiBold,
                     fontWeight: fontWeight,
                     size: textSize),
                 isCenter?const Spacer():Container(),

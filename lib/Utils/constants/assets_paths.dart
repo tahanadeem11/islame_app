@@ -8,4 +8,6 @@ class AppImages {
   static const bissmillah = "$_path/bissmillah.png";
   static const bottomImage = "$_path/bottom Image.png";
   static const bissmillahnew = "$_path/bissmillahnew.png";
+  static const facebook = "$_path/facebook.png";
+  static const google = "$_path/google.png";
 }
