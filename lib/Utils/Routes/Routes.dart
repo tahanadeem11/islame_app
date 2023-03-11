@@ -1,5 +1,12 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../../View/Drawer/About us.dart';
+import '../../View/Drawer/Display Settings.dart';
+import '../../View/Drawer/Pricing.dart';
+import '../../View/Drawer/Privacy Policy.dart';
+import '../../View/Drawer/QuizResult.dart';
+import '../../View/Drawer/endDrawer/Faqs.dart';
+import '../../View/Drawer/endDrawer/User Profile.dart';
 import '../../View/Forget&reset/Forget Password.dart';
 import '../../View/Forget&reset/Reset Password.dart';
 import '../../View/HomeScreen/HomeScreen.dart';
@@ -30,5 +37,12 @@ class Routes {
     GetPage(name: '/Guidence', page: () => Guidence()),
     GetPage(name: '/Practice', page: () => Practice()),
     GetPage(name: '/QuizScreen', page: () => QuizScreen()),
+    GetPage(name: '/Aboutus', page: () => Aboutus()),
+    GetPage(name: '/Pricing', page: () => Pricing()),
+    GetPage(name: '/PrivayScreen', page: () => PrivayScreen()),
+    GetPage(name: '/UserProfile', page: () => UserProfile()),
+    GetPage(name: '/DisplaySetting', page: () => DisplaySetting()),
+    GetPage(name: '/Faqs', page: () => Faqs()),
+    GetPage(name: '/QuizResult', page: () => QuizResult()),
   ];
 }

@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +26,7 @@ class _GuidenceState extends State<Guidence> {
   SpeechToText _speechToText = SpeechToText();
 
   bool _speechEnabled = false;
-
+  AudioPlayer player = AudioPlayer();
   String _lastWords = '';
 
   // final List_of_wordscontroller = Get.find<List_of_wordsController>();
@@ -60,7 +64,13 @@ class _GuidenceState extends State<Guidence> {
       _lastWords = result.recognizedWords;
     });
   }
+  List<String> litems = ["01","02","03","04",
+    "05","06","07","08",
+    "09","10","11","12",
+    "13","14","15","16"
+  ];
 
+  int index =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,12 +142,25 @@ class _GuidenceState extends State<Guidence> {
                             border: Border.all(color: Colors.white,width: 1)
                           ),
                           child: Center(
-                            child: Text("ب",
+                            child: TextButton(
+
+                                onPressed: () async {
+                                String audioasset = "assets/audio/Baa Sound.mp4";
+                                ByteData bytes = await rootBundle.load(audioasset); //load sound from assets
+                                Uint8List  soundbytes = bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes);
+                                int result = await player.playBytes(soundbytes);
+                                if(result == 1){ //play success
+                                  print("Sound playing successful.");
+                                }else{
+                                  print("Error while playing sound.");
+                                }
+                              }, child: Text("ب",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 50,
                                   fontWeight: FontWeight.bold
                               ),
+                            ),
                             ),
                           ),
                         ),
@@ -154,67 +177,6 @@ class _GuidenceState extends State<Guidence> {
                     SizedBox(
                       height: 20,
                     ),
-
-
-                    SizedBox(
-                      height: 20,
-                    ),
-
-                    Padding(
-                      padding: AppPaddings.defaultPaddingLR20,
-                      child: Container(
-                        height: 54,
-                        width: Get.width/1.1,
-                        decoration:   BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 0,
-                              blurRadius: 4,
-                              offset: const Offset(0, 4), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Card(
-                          child: Padding(
-                            padding: AppPaddings.defaultPaddingLR20,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height:29,
-                                  width: 35,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: AppColors.Primary_Color
-                                  ),
-                                  child: IconButton(
-                                    padding: EdgeInsets.zero,
-                                    onPressed:
-                                    // If not yet listening for speech start, otherwise stop
-                                    _speechToText.isNotListening ? _startListening : _stopListening,
-                                    tooltip: 'Listen',
-                                    icon: Icon(_speechToText.isNotListening ? Icons.mic : Icons.mic_off,color: Colors.white,),
-                                  ),),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    AppText(
-                      title: _speechToText.isListening
-                          ? '$_lastWords'
-                          : _speechEnabled
-                          ? 'Tap the microphone to start listening...'
-                          : 'Speech not available',
-                      color: AppColors.WHITE_COLOR,
-                      size: 15,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-
 
                     Container(
                       height: 200,

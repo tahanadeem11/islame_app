@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islame_app_new_design/Utils/widget/app_Paddings/app_Paddings.dart';
 
@@ -36,23 +38,28 @@ class Draweras extends StatelessWidget {
                 padding: AppPaddings.defaultPaddingLR20,
                 child: Column(
                   children: [
-                    Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Image.asset("assets/images/Home.png"),
-                          SizedBox(
-                            width: 20 ,
-                          ),
-                          Text("Home",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500
+                    InkWell(
+                      onTap:(){
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/Home.png"),
+                            SizedBox(
+                              width: 20 ,
                             ),
-                          )
-                        ],
+                            Text("Home",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Divider(
@@ -62,24 +69,31 @@ class Draweras extends StatelessWidget {
                     ),
 
 
-                    Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Image.asset("assets/images/Quiz Result.png"),
-                          SizedBox(
-                            width: 20 ,
-                          ),
+                    InkWell(
+                      onTap: (){
 
-                          Text("Quiz Result",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500
+                        Get.toNamed('/QuizResult');
+
+                      },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/Quiz Result.png"),
+                            SizedBox(
+                              width: 20 ,
                             ),
-                          )
-                        ],
+
+                            Text("Quiz Result",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Divider(
@@ -89,24 +103,29 @@ class Draweras extends StatelessWidget {
                     ),
 
 
-                    Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Image.asset("assets/images/Unblock Features.png"),
-                          SizedBox(
-                            width: 20 ,
-                          ),
-
-                          Text("Unblock Features",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500
+                    InkWell(
+                      onTap: (){
+                        Get.toNamed('/Pricing');
+                        },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/Unblock Features.png"),
+                            SizedBox(
+                              width: 20 ,
                             ),
-                          )
-                        ],
+
+                            Text("Unblock Features",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Divider(
@@ -146,24 +165,30 @@ class Draweras extends StatelessWidget {
 
 
 
-                    Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Image.asset("assets/images/FAQ’s.png"),
-                          SizedBox(
-                            width: 20 ,
-                          ),
+                    InkWell(
+                      onTap: (){
+                        Get.toNamed('/Faqs');
 
-                          Text("FAQ’s",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500
+                      },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/FAQ’s.png"),
+                            SizedBox(
+                              width: 20 ,
                             ),
-                          )
-                        ],
+
+                            Text("FAQ’s",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Divider(
@@ -204,24 +229,60 @@ class Draweras extends StatelessWidget {
 
 
 
-                    Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Image.asset("assets/images/Privacy Policy.png"),
-                          SizedBox(
-                            width: 20 ,
-                          ),
-
-                          Text("Privacy Policy",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500
+                    InkWell(
+                      onTap: (){
+                        Get.toNamed('/PrivayScreen');
+                      },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/Privacy Policy.png"),
+                            SizedBox(
+                              width: 20 ,
                             ),
-                          )
-                        ],
+
+                            Text("Privacy Policy",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 1,
+                      height: 1,
+                      color: Colors.white,
+                    ),
+
+                    InkWell(
+                      onTap: (){
+                        Get.toNamed('/Aboutus');
+                      },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/Privacy Policy.png"),
+                            SizedBox(
+                              width: 20 ,
+                            ),
+
+                            Text("About Us",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Divider(

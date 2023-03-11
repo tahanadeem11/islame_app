@@ -5,27 +5,120 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../Utils/Theme/app_color.dart';
 import '../../../Utils/constants/assets_paths.dart';
 import '../../../Utils/widget/app_Paddings/app_Paddings.dart';
+
 class Words extends StatelessWidget {
-  const Words({Key? key}) : super(key: key);
+  Words({Key? key}) : super(key: key);
+  List<String> litems = [
+    "Alif",
+    "Baa",
+    "Taa",
+    "Saa",
+    "Jeem",
+    "Haa",
+    "Khaa",
+    "Dall",
+    "Zall",
+    "Raaw",
+    "Zaa",
+    "Seen",
+    "Sheen",
+    "Sawad",
+    "Dwaad",
+    "Twaa",
+    "Zwaan",
+    "Ayeen",
+    "Gaeen",
+    "Faaa",
+    "Qaff",
+    "kaff",
+    "laam",
+    "meem",
+    "Noon",
+    "wawoo",
+    "Haaw",
+    "Hamza",
+    "Yaaaa",
+  ];
+  List<String> urdu = [
+    "ا",
+    "ب",
+    "ت",
+    "ﺙ",
+    "ج",
+    "ح",
+    "ﺥ",
+    "د",
+    "ﺫ",
+    "ر",
+    "ﺯ",
+    "س",
+    "ش",
+    "ص",
+    "ﺽ",
+    "ط",
+    "ﻅ",
+    "ع",
+    "غ",
+    "ف",
+    "ق",
+    "ﻙ",
+    "ل",
+    "م",
+    "ن",
+    "و",
+    "ہ",
+    "ء",
+    "ی",
+  ];
+  List<String> Details = [
+    "الف",
+    "با",
+    "تا",
+    "ثآ",
+    "جیم",
+    "حا",
+    "خا",
+    "دال",
+    "ذال",
+    "را",
+    "زا",
+    "سین",
+    "شین",
+    "صاد",
+    "ضاد",
+    "طا",
+    "ظا",
+    "عین",
+    "غین",
+    "فا",
+    "قاف",
+    "کاف",
+    "لام",
+    "میم",
+    "نون",
+    "واو",
+    "ھا",
+    "ھمزہ",
+    "یا",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topLeft,
                 colors: <Color>[
                   AppColors.Light_Cyan,
-                  AppColors.Lignt_Green,]),
+                  AppColors.Lignt_Green,
+                ]),
           ),
         ),
         elevation: 0,
         centerTitle: true,
-
-
         actions: <Widget>[
           IconButton(
             icon: const Icon(
@@ -51,26 +144,25 @@ class Words extends StatelessWidget {
           Container(
               height: double.infinity,
               width: double.infinity,
-              child:ListView.builder(
+              child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding:  AppPaddings.defaultPaddingLR20,
+                    padding: AppPaddings.defaultPaddingLR20,
                     child: Column(
                       children: [
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             Get.toNamed('/Guidence');
                             //Navigator.push
                           },
                           child: Container(
                               height: 70,
                               width: Get.width,
-                              decoration:  BoxDecoration(
+                              decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
                                     colors: [
-
                                       AppColors.Light_Cyan,
                                       AppColors.Lignt_Green,
                                     ]),
@@ -80,38 +172,35 @@ class Words extends StatelessWidget {
                                     color: Colors.grey.withOpacity(0.25),
                                     spreadRadius: 0,
                                     blurRadius: 40,
-                                    offset: Offset(0, 4), // changes position of shadow
+                                    offset: Offset(
+                                        0, 4), // changes position of shadow
                                   ),
                                 ],
                               ),
-                              child:  Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
-
-                                  Text("Baa",
+                                  Text(
+                                    litems[index],
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 24
-                                    ),
-                                  ), Text("ب",
+                                        color: Colors.white, fontSize: 24),
+                                  ),
+                                  Text(
+                                    urdu[index],
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 50,
-                                      fontWeight: FontWeight.bold
-                                    ),
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                  Text("با",
+                                  Text(
+                                    Details[index],
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 30
-                                    ),
+                                        color: Colors.white, fontSize: 30),
                                   ),
-
                                 ],
-                              )
-                          ),
+                              )),
                         ),
-
                         SizedBox(
                           height: 10,
                         ),
@@ -119,10 +208,8 @@ class Words extends StatelessWidget {
                     ),
                   );
                 },
-
-
-              )
-          ),
+                itemCount: urdu.length,
+              )),
         ],
       ),
     );

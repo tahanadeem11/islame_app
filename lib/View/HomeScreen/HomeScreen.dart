@@ -6,6 +6,7 @@ import '../HomeScreen_Index/Learning_Index/Learning_Index.dart';
 import '../HomeScreen_Index/Main_Home_Index/HomeScreen_Index.dart';
 import '../HomeScreen_Index/Reciting_Index/Reciting_Index.dart';
 import 'Drawer.dart';
+import 'endDrawer.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -15,11 +16,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex =0;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          bottomNavigationBar: ConvexAppBar(
+            key: _scaffoldKey,
+            bottomNavigationBar: ConvexAppBar(
             style: TabStyle.custom,
               backgroundColor:Color(0xff04AD89),
               activeColor: Color(0xffFFCA21),
@@ -57,21 +60,34 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 50,
                 width: 50,
                 child: Image.asset("assets/images/splashLogo.png")),
+            leading: Builder(
+              builder: (context){
+                return IconButton(
+                  icon: Icon(Icons.menu),
+                  onPressed: (){
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              },
+            ),
 
             actions: <Widget>[
-              IconButton(
-                icon: const Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  // do something
+              Builder(
+                builder: (context){
+                  return IconButton(
+                    icon: Icon(Icons.settings_outlined),
+                    onPressed: (){
+                      Scaffold.of(context).openEndDrawer();
+                    },
+                  );
                 },
               )
             ],
           ),
+
           drawer: Draweras(),
-          body: _currentIndex==0?HomeScreen_Index():_currentIndex==1?Learning_Index():_currentIndex==2?Reciting_Index():Container()
+            endDrawer:endDrawer(),
+            body: _currentIndex==0?HomeScreen_Index():_currentIndex==1?Learning_Index():_currentIndex==2?Reciting_Index():Container()
         ));
 
   }

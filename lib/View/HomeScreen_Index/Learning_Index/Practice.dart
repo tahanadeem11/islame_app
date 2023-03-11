@@ -1,5 +1,8 @@
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islame_app_new_design/Utils/widget/app_Paddings/app_Paddings.dart';
@@ -9,7 +12,6 @@ import 'package:speech_to_text/speech_to_text.dart';
 import '../../../Utils/Theme/app_color.dart';
 import '../../../Utils/constants/assets_paths.dart';
 import '../../../Utils/widget/AppText/App Text.dart';
-
 class Practice extends StatefulWidget {
   const Practice({Key? key}) : super(key: key);
 
@@ -18,8 +20,10 @@ class Practice extends StatefulWidget {
 }
 
 class _PracticeState extends State<Practice> {
+  String statusText = "";
+  bool isComplete = false;
+  AudioPlayer player = AudioPlayer();
   SpeechToText _speechToText = SpeechToText();
-  final player = AudioCache();
   bool _speechEnabled = false;
 
   String _lastWords = '';
@@ -59,7 +63,6 @@ class _PracticeState extends State<Practice> {
       _lastWords = result.recognizedWords;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,17 +123,30 @@ class _PracticeState extends State<Practice> {
                     color: Color(0xff0D6E5D),
                     border: Border.all(color: Colors.white,width: 1)
                 ),
-                child: Center(
-                  child: Text("ب",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold
+                child:  Center(
+                  child: TextButton(
+                      onPressed: () async {
+                        String audioasset = "assets/audio/Baa Sound.mp4";
+                        ByteData bytes = await rootBundle.load(audioasset); //load sound from assets
+                        Uint8List  soundbytes = bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes);
+                        int result = await player.playBytes(soundbytes);
+                        if(result == 1){ //play success
+                          print("Sound playing successful.");
+                        }else{
+                          print("Error while playing sound.");
+                        }
+                      },
+                    child: Text("ب",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -158,84 +174,115 @@ class _PracticeState extends State<Practice> {
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent,
-                      elevation: 0
-                    ),
-                    onPressed: () {
-                      AudioPlayer().play(AssetSource('assets/audio/Word Up.mp3'));
-                    },
-                        child: Container(
-                          height: 54,
-                          width: MediaQuery.of(context).size.width/1.2,
-                          decoration:   BoxDecoration(
-                            gradient:  LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
+                  Container(
+                    height: 54,
+                    width: MediaQuery.of(context).size.width/1.2,
+                    decoration:   BoxDecoration(
+                      gradient:  LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            AppColors.Light_Cyan,
+                            AppColors.Lignt_Green,
+                          ]),),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ElevatedButton.icon(
+                              onPressed: () async {
+                                String audioasset = "assets/audio/alphabet_ur.mp3";
+                                ByteData bytes = await rootBundle.load(audioasset); //load sound from assets
+                                Uint8List  soundbytes = bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes);
+                                int result = await player.playBytes(soundbytes);
+                                if(result == 1){ //play success
+                                  print("Sound playing successful.");
+                                }else{
+                                  print("Error while playing sound.");
+                                }
+                              },
+                              icon: Icon(Icons.play_arrow),
+                              label:Text("Play")
+                          ),
 
-                                  AppColors.Light_Cyan,
-                                  AppColors.Lignt_Green,
-                                ]),),
-                        ),
-                      ),
-                      SizedBox(
+
+                          ElevatedButton.icon(
+                              onPressed: () async {
+                                int result = await player.stop();
+
+                                // You can pasue the player
+                                // int result = await player.pause();
+
+                                if(result == 1){ //stop success
+                                  print("Sound playing stopped successfully.");
+                                }else{
+                                  print("Error on while stopping sound.");
+                                }
+                              },
+                              icon: Icon(Icons.stop),
+                              label:Text("Stop")
+                          ),
+                        ],
+
+                      )
+                  ),
+
+                      const SizedBox(
                         height: 10,
                       ),
-                      Padding(
-                        padding: AppPaddings.defaultPaddingLR20,
-                        child: Container(
-                          height: 54,
-                          width: Get.width/1.1,
-                          decoration:   BoxDecoration(
-                              gradient:  LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: AppPaddings.defaultPaddingLR20,
+                            child: Container(
+                              height: 54,
+                              width: Get.width/1.1,
+                              decoration:   BoxDecoration(
+                                gradient:  LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [
 
-                                    AppColors.Light_Cyan,
-                                    AppColors.Lignt_Green,
-                                  ]),),
-                          child: Card(
-                            color: Colors.transparent,
-                            child: Padding(
-                              padding: AppPaddings.defaultPaddingLR20,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height:29,
-                                    width: 35,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: AppColors.WHITE_COLOR
-                                    ),
-                                    child: IconButton(
-                                      padding: EdgeInsets.zero,
-                                      onPressed:
-                                      // If not yet listening for speech start, otherwise stop
-                                      _speechToText.isNotListening ? _startListening : _stopListening,
-                                      tooltip: 'Listen',
-                                      icon: Icon(_speechToText.isNotListening ? Icons.mic : Icons.mic_off,color: AppColors.Primary_Color,),
-                                    ),),
-                                ],
+                                      AppColors.Light_Cyan,
+                                      AppColors.Lignt_Green,
+                                    ]),),
+                              child: Padding(
+                                padding: AppPaddings.defaultPaddingLR20,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height:29,
+                                      width: 35,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(5),
+                                          color: AppColors.WHITE_COLOR
+                                      ),
+                                      child: IconButton(
+                                        padding: EdgeInsets.zero,
+                                        onPressed:
+                                        // If not yet listening for speech start, otherwise stop
+                                        _speechToText.isNotListening ? _startListening : _stopListening,
+                                        tooltip: 'Listen',
+                                        icon: Icon(_speechToText.isNotListening ? Icons.mic : Icons.mic_off,color: AppColors.Primary_Color,),
+                                      ),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      AppText(
-                        title: _speechToText.isListening
-                            ? '$_lastWords'
-                            : _speechEnabled
-                            ? 'Tap the microphone to start listening...'
-                            : 'Speech not available',
-                        color: AppColors.WHITE_COLOR,
-                        size: 15,
+                          AppText(
+                            title: _speechToText.isListening
+                                ? '$_lastWords'
+                                : _speechEnabled
+                                ? 'Tap the microphone to start listening...'
+                                : 'Speech not available',
+                            color: AppColors.WHITE_COLOR,
+                            size: 15,
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
@@ -259,7 +306,7 @@ class _PracticeState extends State<Practice> {
                             )
                         ),
                         child: TextButton(onPressed: () {
-                          Get.toNamed('/OTP');
+                         // Get.toNamed('/OTP');
                         }, child:
                         Text("Start ",
                           style: GoogleFonts.poppins(
@@ -345,4 +392,16 @@ class _PracticeState extends State<Practice> {
     ])
     );
   }
+
+
 }
+/*
+
+
+ */
+
+
+/*
+
+
+ */
