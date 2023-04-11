@@ -16,6 +16,10 @@ class CreateProfile extends StatefulWidget {
 class _CreateProfileState extends State<CreateProfile> {
   @override
   String gender = "male";
+  TextEditingController nameController = TextEditingController();
+  TextEditingController  DOBController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController ConfirmPassController = TextEditingController();
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -76,6 +80,7 @@ class _CreateProfileState extends State<CreateProfile> {
                         height: 5,
                       ),
                       TextFormField(
+                        controller: nameController,
                         decoration: InputDecoration(
                           labelText: "Enter your full Name",
                           fillColor: AppColors.Field_and_Button_Color,
@@ -310,6 +315,7 @@ class _CreateProfileState extends State<CreateProfile> {
                         height: 5,
                       ),
                       TextFormField(
+                        controller: passwordController,
                         decoration: InputDecoration(
                           labelText: "Enter  your Password ",
                           fillColor: AppColors.Field_and_Button_Color,
@@ -362,6 +368,7 @@ class _CreateProfileState extends State<CreateProfile> {
                         height: 5,
                       ),
                       TextFormField(
+                        controller: ConfirmPassController,
                         decoration: InputDecoration(
                           labelText: "confirm your Password  ",
                           fillColor: AppColors.Field_and_Button_Color,

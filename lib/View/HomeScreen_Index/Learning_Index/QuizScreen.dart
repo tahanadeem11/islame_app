@@ -65,7 +65,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                 height: 20,
                               ),
                               Container(
-                                child: Text("Question No: 01",
+                                child: Text("Choose Correct Option",
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
@@ -78,12 +78,19 @@ class _QuizScreenState extends State<QuizScreen> {
                                 height: 20,
                               ),
                               Container(
-                                height: 54,
-                                width: MediaQuery.of(context).size.width/1.2,
-                                child: Image.asset("assets/images/voice2.png",
-                                  fit: BoxFit.fill,
-                                ),
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff059E70),
+                                borderRadius: BorderRadius.circular(100),),
+
+                               child: IconButton(onPressed: () {  }, icon: Icon(Icons.play_arrow, color: Colors.white,),
+                                  
+                                ),),
+                              SizedBox(
+                                height: 10,
                               ),
+
 
                               Column(
                                 children: [
@@ -110,7 +117,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                      ],
                                    ),
                                     child: TextButton(onPressed: () {
-                                      Get.toNamed('/QuizScreen');
+                                   //   Get.toNamed('/QuizScreen');
                                     }, child:
                                     Text("MCQ Option",
                                       style: GoogleFonts.poppins(
@@ -148,7 +155,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       ],
                                     ),
                                     child: TextButton(onPressed: () {
-                                      Get.toNamed('/QuizScreen');
+                                      //Get.toNamed('/QuizScreen');
                                     }, child:
                                     Text("MCQ Option",
                                       style: GoogleFonts.poppins(
@@ -187,7 +194,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       ],
                                     ),
                                     child: TextButton(onPressed: () {
-                                      Get.toNamed('/QuizScreen');
+                                     // Get.toNamed('/QuizScreen');
                                     }, child:
                                     Text("MCQ Option",
                                       style: GoogleFonts.poppins(
@@ -225,7 +232,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       ],
                                     ),
                                     child: TextButton(onPressed: () {
-                                      Get.toNamed('/QuizScreen');
+                                     // Get.toNamed('/QuizScreen');
                                     }, child:
                                     Text("MCQ Option",
                                       style: GoogleFonts.poppins(
@@ -249,6 +256,84 @@ class _QuizScreenState extends State<QuizScreen> {
                         ),
                       ),
                     ),
+                  ),
+                  Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        height:   48,
+                        width: 115,
+                        decoration:  BoxDecoration(
+                          border: Border.all(
+                              color: Colors.cyan
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.25),
+                              spreadRadius: 0,
+                              blurRadius: 40,
+                              offset: Offset(0, 4), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: TextButton(onPressed: () {
+                         // Get.toNamed('/QuizScreen');
+                        }, child:
+                        Text("Pervious",
+                          style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white
+                          ),
+                        ),
+
+
+                        ),
+                      ),
+                      Container(
+                        height:   48,
+                        width: 105,
+                        decoration:  BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+
+                                AppColors.Light_Cyan,
+                                AppColors.Lignt_Green,
+                              ]),
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.25),
+                              spreadRadius: 0,
+                              blurRadius: 40,
+                              offset: Offset(0, 4), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Get.toNamed('/QuizScreen');
+                          },
+                          child:
+                        Text("Next",
+                          style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white
+                          ),
+                        ),
+
+
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
 
 

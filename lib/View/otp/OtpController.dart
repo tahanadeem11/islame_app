@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class OtpController extends GetxController {
   bool isShow = false;
-  TextEditingController controller = TextEditingController();
+    TextEditingController controller = TextEditingController();
 
   void showMethod() {
     isShow = true;

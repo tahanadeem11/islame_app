@@ -24,9 +24,9 @@ class _signupState extends State<signup> {
      countryPhoneController.text = "+92";
      super.initState();
    }
-
+   int val =0;
+   bool loading1 = false;
   @override
-  int val =0;
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -136,6 +136,7 @@ class _signupState extends State<signup> {
                         ],
                       ),
                     ),
+
                     Container(
                       height:   48,
                       width: 153,
@@ -154,13 +155,25 @@ class _signupState extends State<signup> {
                               width: 1
                           )
                       ),
-                      child: TextButton(
-                        onPressed: () {
+                      child:
+                      loading1?
+                      const CircularProgressIndicator():
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.transparent,
+                        ),
+                        onPressed: () async {
+                          setState(() {
+                            loading1 = true;
+                          });
                           AuthService().signInWithPhone()!;
-
+                          setState(() {
+                            loading1 = false;
+                          });
                         //Get.toNamed('/OTP');
-                      }, child:
-                      Text("send Code",
+                      },
+                        child:
+                      Text("Send Code",
                         style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,

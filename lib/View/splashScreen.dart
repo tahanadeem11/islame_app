@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:islame_app_new_design/Utils/Theme/app_color.dart';
 import 'package:islame_app_new_design/Utils/constants/assets_paths.dart';
+import 'package:islame_app_new_design/View/services/firebase_auth_methods.dart';
 
 import 'Signup/Signup.dart';
 import 'onboarding Screen/OnboardingScreen.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => signup(),
+          builder: (context) => AuthService().handleAuthState(),
         ),
       );
     });

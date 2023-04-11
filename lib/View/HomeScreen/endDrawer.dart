@@ -64,7 +64,7 @@ class _endDrawerState extends State<endDrawer> {
                   children: [
                     InkWell(
                       onTap:(){
-                        Get.toNamed('/UserProfile');
+                        //Get.toNamed('/UserProfile');
                       },
                       child: Container(
                         height: 48,
@@ -95,7 +95,7 @@ class _endDrawerState extends State<endDrawer> {
 
                     InkWell(
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplaySetting()));
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplaySetting()));
                       },
                       child: Container(
                         height: 48,

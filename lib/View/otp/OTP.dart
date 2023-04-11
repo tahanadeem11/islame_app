@@ -25,6 +25,7 @@ class OTP extends StatefulWidget {
 class _OTPState extends State<OTP> {
   final controller = Get.put(OtpController());
   var otpTextField = "";
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -77,7 +78,7 @@ class _OTPState extends State<OTP> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text("mobile number +92 300 00 000",
+                    Text("Phone No You Entered  "+ countryPhoneController.text.toString(),
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       color: Colors.white,
@@ -120,6 +121,8 @@ class _OTPState extends State<OTP> {
                           SizedBox(
                             height: 20,
                           ),
+                          loading?
+                          CircularProgressIndicator():
                           Container(
                             height:   48,
                             width: Get.width,
@@ -139,7 +142,9 @@ class _OTPState extends State<OTP> {
                                 )
                             ),
                             child: TextButton(onPressed: () async {
-
+                              setState(() {
+                                loading = true;
+                              });
                               PhoneAuthCredential credential =
                               PhoneAuthProvider.credential(
                                   verificationId: signup.verify,
@@ -149,7 +154,10 @@ class _OTPState extends State<OTP> {
 
                               //AuthService().signInWithGoogle();
                               Get.toNamed('/HomeScreen');
-                            },
+                              setState(() {
+                                loading = false;
+                              });
+                              },
                             child:
                             Text("Verify",
                               style: GoogleFonts.poppins(

@@ -66,7 +66,7 @@ class AuthService {
         signup.verify = verificationId;
         Get.toNamed('/OTP');
       },
-        timeout: const Duration(seconds: 25),
+        timeout: const Duration(seconds: 60),
         forceResendingToken: resendToken,
         codeAutoRetrievalTimeout: (String verificationId) {
           verificationId = verificationId;
