@@ -64,7 +64,7 @@ class _endDrawerState extends State<endDrawer> {
                   children: [
                     InkWell(
                       onTap:(){
-                        //Get.toNamed('/UserProfile');
+                        Get.toNamed('/UserProfile');
                       },
                       child: Container(
                         height: 48,
@@ -95,7 +95,7 @@ class _endDrawerState extends State<endDrawer> {
 
                     InkWell(
                       onTap: (){
-                        //Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplaySetting()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplaySetting()));
                       },
                       child: Container(
                         height: 48,
@@ -108,38 +108,6 @@ class _endDrawerState extends State<endDrawer> {
                             ),
 
                             Text("Display Setting",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Divider(
-                      thickness: 1,
-                      height: 1,
-                      color: Colors.white,
-                    ),
-
-
-                    InkWell(
-                      onTap: (){
-                       // Get.toNamed('/Pricing');
-                      },
-                      child: Container(
-                        height: 48,
-                        width: MediaQuery.of(context).size.width,
-                        child: Row(
-                          children: [
-                            Image.asset("assets/images/notification.png"),
-                            SizedBox(
-                              width: 20 ,
-                            ),
-
-                            Text("Notification",
                               style: GoogleFonts.poppins(
                                   fontSize: 16,
                                   color: Colors.white,

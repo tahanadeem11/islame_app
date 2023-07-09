@@ -49,7 +49,32 @@ dependencies:
   firebase_core: ^2.7.0
   cloud_firestore: ^4.3.1
 
+  share: ^2.0.4
+  recase: ^4.0.0
+  shimmer: ^2.0.0
+  url_strategy: ^0.2.0
 
+    # network
+  dio: ^4.0.6
+  url_launcher: ^6.0.12
+
+    # state management
+  provider: ^6.0.1
+  equatable: ^2.0.3
+  flutter_bloc: ^7.2.0
+
+    # icon pack
+  iconsax: ^0.0.8
+
+    # flutter code
+  flutter_lints: ^1.0.4
+
+    # cache    hive: ^2.0.4
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.0.8
+
+    # app info
+  package_info_plus: ^1.4.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -57,13 +82,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.1.5
+  hive_generator: ^1.1.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -11,6 +11,9 @@ import '../../View/Forget&reset/Forget Password.dart';
 import '../../View/Forget&reset/Reset Password.dart';
 import '../../View/HomeScreen/HomeScreen.dart';
 import '../../View/HomeScreen_Index/Learning_Index/Guidence.dart';
+import '../../View/HomeScreen_Index/Learning_Index/Lesson_Directory/LessonNo_3.dart';
+import '../../View/HomeScreen_Index/Learning_Index/Lesson_Directory/LessonNo_4.dart';
+import '../../View/HomeScreen_Index/Learning_Index/Lesson_Directory/Lesson_No_2.dart';
 import '../../View/HomeScreen_Index/Learning_Index/Practice.dart';
 import '../../View/HomeScreen_Index/Learning_Index/QuizScreen.dart';
 import '../../View/HomeScreen_Index/Learning_Index/word.dart';
@@ -44,5 +47,8 @@ class Routes {
     GetPage(name: '/DisplaySetting', page: () => DisplaySetting()),
     GetPage(name: '/Faqs', page: () => Faqs()),
     GetPage(name: '/QuizResult', page: () => QuizResult()),
+    GetPage(name: '/LessonNo_2', page: () => LessonNo_2()),
+    GetPage(name: '/LessonNo_2', page: () => LessonNo_3()),
+    GetPage(name: '/LessonNo_2', page: () => LessonNo_4()),
   ];
 }

@@ -201,24 +201,29 @@ class Draweras extends StatelessWidget {
 
 
 
-                    Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Image.asset("assets/images/Feedback.png"),
-                          SizedBox(
-                            width: 20 ,
-                          ),
-
-                          Text("Feedback",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500
+                    InkWell(
+                      onTap: (){
+                        Get.toNamed('/Faqs');
+                      },
+                      child: Container(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Image.asset("assets/images/Feedback.png"),
+                            SizedBox(
+                              width: 20 ,
                             ),
-                          )
-                        ],
+
+                            Text("Feedback",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Divider(

@@ -153,7 +153,7 @@ class _OTPState extends State<OTP> {
                               await auth.signInWithCredential(credential);
 
                               //AuthService().signInWithGoogle();
-                              Get.toNamed('/HomeScreen');
+                              Get.toNamed('/CreateProfile');
                               setState(() {
                                 loading = false;
                               });

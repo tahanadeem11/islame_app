@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:islame_app_new_design/View/HomeScreen/HomeScreen.dart';
 
-import '../HomeScreen/HomeScreen.dart';
 import '../Signup/Signup.dart';
 import '../otp/OtpController.dart';
 

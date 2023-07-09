@@ -1,7 +1,10 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:islame_app_new_design/Utils/Theme/app_color.dart';
+import 'package:islame_app_new_design/juzz/lib/screens/home/home_screen.dart';
+import 'package:islame_app_new_design/juzz/lib/screens/surah/surah_index_screen.dart';
 
+import '../../juzz/lib/screens/juz/juz_index_screen.dart';
 import '../HomeScreen_Index/Learning_Index/Learning_Index.dart';
 import '../HomeScreen_Index/Main_Home_Index/HomeScreen_Index.dart';
 import '../HomeScreen_Index/Reciting_Index/Reciting_Index.dart';
@@ -40,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     print(_currentIndex= index);
 
                   });
-
                 }
             ),
             appBar: AppBar(
@@ -87,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             drawer: Draweras(),
             endDrawer:endDrawer(),
-            body: _currentIndex==0?HomeScreen_Index():_currentIndex==1?Learning_Index():_currentIndex==2?Reciting_Index():Container()
+            body: _currentIndex==0?HomeScreen_Index():_currentIndex==1?Learning_Index():_currentIndex==2?HomeScreensa(maxSlide: MediaQuery.of(context).size.width * 0.835,):Container()
         ));
 
   }
